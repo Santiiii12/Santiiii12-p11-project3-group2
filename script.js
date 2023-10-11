@@ -2,28 +2,37 @@ const input = document.querySelector('input');
 const button = document.querySelector('button');
 const results = document.querySelector('.results');
 
-function traerRickyMorty () {
-    console.log (input); 
-    fetch(input.value)
-    .then((res) => res.json())
-    .then((data) => {
+button.addEventListener('click', (event) => {
+    event.preventDefault();
+    traerRickyMorty();
+})
 
-        data.results.forEach(element => {
-            const json = JSON.stringify(element);
-            results.innerHTML= `<p>${json}</p>`; 
-        });
-
-    })
+function buscar() {
     
 }
 
-// traerRickyMorty() ;
+function traerRickyMorty() {
+    const input = document.querySelector('input');
+    
+    fetch(input.value)
+        .then((res) => res.json())
+        .then((data) => {
+
+            data.results.forEach(element => {
+                const json = JSON.stringify(element);
+                results.innerHTML = `<p>${json}</p>`;
+            });
+
+        })
+
+}
+
+//traerRickyMorty();
 
 //https://rickandmortyapi.com/api/character/?name=rick&status=alive
 
 
 
 
-   
 
-    
+
