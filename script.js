@@ -29,7 +29,7 @@ function traerRickyMorty() {
             } else {
                 data.results.forEach(element => {
                     const json = JSON.stringify(element);
-                    results.innerHTML +=`<p>200 OK --- ${json}</p>`;
+                    results.innerHTML +=`<p>200 OK  ${json}</p>`;
                 });
             }
         })
@@ -37,6 +37,85 @@ function traerRickyMorty() {
             results.innerHTML = `<p>${error.message}</p>`;
         });
 }
+
+function inviaDati() {
+    const characterName = input.value; // Recupera il nome dal campo di input
+
+    const data = {
+        name: characterName,
+        status: "vivo" // Puoi personalizzare i dati da inviare
+    };
+
+    fetch('URL_API', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then((res) => {
+        if (res.status === 201) {
+            return res.json();
+        } else {
+            throw new Error('Errore ' + res.status);
+        }
+    })
+    .then((data) => {
+        results.innerHTML = 'Operazione POST eseguita con successo.';
+    })
+    .catch((error) => {
+        results.innerHTML = `<p>${error.message}</p>`;
+    });
+}
+
+// Funzione per l'operazione PUT
+function aggiornaDati() {
+    const characterName = input.value; // Recupera il nome dal campo di input
+
+    const data = {
+        name: characterName,
+        status: "morto" // Puoi personalizzare i dati da inviare
+    };
+
+    fetch('URL_API', {
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then((res) => {
+        if (res.status === 200) {
+            return res.json();
+        } else {
+            throw new Error('Errore ' + res.status);
+        }
+    })
+    .then((data) => {
+        results.innerHTML = 'Operazione PUT eseguita con successo.';
+    })
+    .catch((error) => {
+        results.innerHTML = `<p>${error.message}</p>`;
+    });
+}
+
+// Funzione per l'operazione DELETE
+function eliminaDati() {
+    fetch('URL_API', {
+        method: 'DELETE'
+    })
+    .then((res) => {
+        if (res.status === 204) {
+            results.innerHTML = 'Operazione DELETE eseguita con successo.';
+        } else {
+            throw new Error('Errore ' + res.status);
+        }
+    })
+    .catch((error) => {
+        results.innerHTML = `<p>${error.message}</p>`;
+    });
+}
+
 
 //traerRickyMorty();
 
