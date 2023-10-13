@@ -38,4 +38,6 @@ function traerRickyMorty() {
         });
 }
 
+
 //https://rickandmortyapi.com/api/character/?name=rick&status=alive
+
