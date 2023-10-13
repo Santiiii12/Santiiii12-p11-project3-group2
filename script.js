@@ -6,7 +6,7 @@ button.addEventListener('click', (event) => {
     event.preventDefault();
     traerRickyMorty();
 })
-
+//GET
 function traerRickyMorty() {
     const input = document.querySelector('input');
 
@@ -29,7 +29,7 @@ function traerRickyMorty() {
             } else {
                 data.results.forEach(element => {
                     const json = JSON.stringify(element);
-                    results.innerHTML +=`<p>200 OK  ${json}</p>`;
+                    results.innerHTML +=`<p>200 OK---${json}</p>`;
                 });
             }
         })
@@ -38,6 +38,7 @@ function traerRickyMorty() {
         });
 }
 
+/*
 function inviaDati() {
     const characterName = input.value; // Recupera il nome dal campo di input
 
@@ -115,7 +116,7 @@ function eliminaDati() {
         results.innerHTML = `<p>${error.message}</p>`;
     });
 }
-
+//*
 
 //traerRickyMorty();
 
