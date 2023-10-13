@@ -1,5 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: ;
+    background-color: rgba(38, 246, 249, 0.207);
 }
 h1 {
     font-family: Arial, sans-serif;
@@ -11,7 +12,9 @@ input {
     width: 80%;
     padding: 10px;
     margin: 10px;
-    background-color: ;
+    border-radius: 30px;
+    background-color: rgba(98, 255, 166, 0.414) ;
+  
 }
 
 .results {
@@ -21,13 +24,32 @@ input {
     margin: 10px;
     border: 1px solid #ccc;
     overflow: auto;
+    border-radius: 25px;
+    border: solid;
+    border-color: #22baba5e;
+    background-color: #22baba5e;
+
 }
 
 button {
     padding: 10px;
     margin: 10px;
-    background-color: #007bff;
+    border-radius: 100px;
+    background-color: #28c970;
     color: #fff;
     border: none;
     cursor: pointer;
+}
+img {
+    height:  400px;
+    margin: auto;
+    display: block;
+}
+
+.container {
+    padding: 0; 
+    margin-top: -50px;
+    margin-right: auto;
+    margin-left: 160px; 
+    
 }
